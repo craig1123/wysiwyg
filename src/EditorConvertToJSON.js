@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { convertFromRaw } from 'draft-js';
+import convertFromRaw from 'draft-js/lib/convertFromRawToDraftState';
 import { Editor } from 'react-draft-wysiwyg';
+import draftToHtml from 'draftjs-to-html';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
-const content = {"entityMap":{},"blocks":[{"key":"637gr","text":"Initialized from content state.","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}]};
+const content = {"entityMap":{},"blocks":[{"key":"637gr","text":"","type":"unstyled","depth":0,"inlineStyleRanges":[],"entityRanges":[],"data":{}}]};
 
-class EditorConvertToJSON extends Component {
+export default class EditorConvertToJSON extends Component {
   constructor(props) {
     super(props);
     const contentState = convertFromRaw(content);
@@ -13,17 +15,15 @@ class EditorConvertToJSON extends Component {
     }
   }
 
-  onContentStateChange: Function = (contentState) => {
-    this.setState({
-      contentState,
-    });
+  onContentStateChange = (contentState) => {
+    this.setState({ contentState });
   };
 
   render() {
     const { contentState } = this.state;
+    const html = draftToHtml(contentState);
     return (
       <div className="demo-section">
-        <h3>2. Uncontrolled editor component with conversion of content from and to JSON (RawDraftContentState)</h3>
         <div className="demo-section-wrapper">
           <div className="demo-editor-wrapper">
             <Editor
@@ -39,6 +39,7 @@ class EditorConvertToJSON extends Component {
             />
           </div>
         </div>
+        <div className="demo-results" dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     );
   }
