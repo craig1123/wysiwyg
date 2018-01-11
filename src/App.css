@@ -28,7 +28,6 @@
 .demo-wrapper {
   width: 100% !important;
   display: block !important;
-  margin-bottom: 25px !important;
   height: 400px !important;
 }
 .demo-wrapper-medium {
@@ -42,8 +41,6 @@
   border: 1px solid #F1F1F1 !important;
   padding: 5px !important;
   border-radius: 2px !important;
-}
-.demo-editorWrapper {
 }
 .demo-content {
   border: 1px solid #F1F1F1;
@@ -147,15 +144,12 @@
 .demo-section-wrapper {
   display: flex;
 }
-.demo-editor-wrapper {
-  width: 60%;
-}
 .demo-section {
   margin: 50px 30px 20px;
   width: 95%;
 }
 .demo-results {
-    border: 1px solid #f1f1f1;
+  border: 1px solid #f1f1f1;
 }
 .demo-custom-option {
   width: 26px;

@@ -25,7 +25,7 @@ export default class EditorConvertToJSON extends Component {
     return (
       <div className="demo-section">
         <div className="demo-section-wrapper">
-          <div className="demo-editor-wrapper">
+          <div>
             <Editor
               defaultContentState={content}
               wrapperClassName="demo-wrapper"
