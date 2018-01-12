@@ -27,12 +27,16 @@ function uploadImageCallBack(file) {
 }
 
 const toolbar = {
-    options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'link', 'embedded', 'image', 'history'],
+    options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list', 'textAlign', 'link', 'embedded', 'emoji', 'image', 'colorPicker', 'history'],
     inline: { inDropdown: true },
     link: { inDropdown: true },
+    list: { inDropdown: true },
+    textAlign: { inDropdown: true },
     history: { inDropdown: true },
     image: { uploadCallback: uploadImageCallBack, alt: { present: true, mandatory: true }, previewImage: true },
 };
+
+const width = { width: '100%' };
 
 export default class EditorConvertToJSON extends Component {
   constructor(props) {
@@ -53,8 +57,9 @@ export default class EditorConvertToJSON extends Component {
     return (
       <div className="demo-section">
         <div className="demo-section-wrapper">
-          <div style={{ width: '100%' }}>
+          <div style={width}>
             <Editor
+              spellCheck
               defaultContentState={content}
               wrapperClassName="demo-wrapper"
               editorClassName="demo-editor"
